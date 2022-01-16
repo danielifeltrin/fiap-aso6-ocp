@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-django-py-git-2
+  namespace: trab-fiap
+spec:
+  selector:
+    matchLabels:
+      app: blog-django-py-git-2
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: blog-django-py-git-2
+    spec:
+      containers:
+        - name: blog-django-py-git-2
+          image: openshiftkatacoda/blog-django-py
+          ports:
+            - containerPort: 8080
